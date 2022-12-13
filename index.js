@@ -22,9 +22,9 @@ class Car extends Vehicle {
 }
 
 class Motorcycle extends Vehicle {
-    super(make, model, year);
-    constructor(numWheels) {
-        numWheels = 2;
+    constructor(make, model, year) {
+        super(make, model, year);
+        this.numWheels = 2;
     }
 
     revEngine() {
@@ -33,18 +33,19 @@ class Motorcycle extends Vehicle {
 }
 
 class Garage {
-    constructor(vehicles) {
-        capacity = 8;
-        vehicles = [];
+    constructor(capacity) {
+        this.capacity = capacity;
+        this.vehicles = [];
     }
 
-    add() {
-        for(let vehicles of Car) {
-            if(vehicles != Car || Motorcycle) {
+    add(newVehicle) {
+            if(newVehicle != Vehicle) {
                 throw new Error('Only vehicles are allowed in here!');
             }
-
-            new vehicles = vehicles.push(Car, Motorcycle);
-        }
+            if (this.vehicles.length >= this. capacity) {
+                throw new Error("Sorry, we're full"); 
+            }
+            this.vehicles.push(newVehicle);
+            return "Vehicle added!";
     }
 }
